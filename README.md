@@ -18,6 +18,12 @@ Updating sources
     git archive --prefix=$package/ REL_10_STABLE | bzip2 > $rpmbuild/SOURCES/$package.tar.bz2
     sha256 $rpmbuild/SOURCES/$package.tar.bz2 > $rpmbuild/SOURCES/$package.tar.bz2.sha256
 
+Building
+--------
+
+    cd ~/rpmbuild
+    rpmbuild --define 'pgmajorversion 10' -bb SPECS/postgresql-10.spec
+
 Salt Initialization
 -------------------
 
@@ -95,4 +101,3 @@ The spec script and patches were pulled using
 The only modification was to ensure docs were built in `
 
     make -C doc/src/sgml all
-
